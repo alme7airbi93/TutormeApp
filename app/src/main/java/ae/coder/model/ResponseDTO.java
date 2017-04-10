@@ -1,7 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Response;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -26,22 +25,12 @@ public class ResponseDTO implements Serializable {
 	}
 
 
-    public ResponseDTO(Response response) {
-        this.id = response.getId();
-        this.courseId = response.getCourse() != null ? response.getCourse().getCourseId() : 0;
-        this.responseId = response.getResponse() != null ? response.getResponse().getId() : 0;
-        this.text = response.getText();
-        this.userId = response.getUser() != null ? response.getUser().getUserId() : 0;
-        this.responses = converter(response.getResponses());
-    }
-
-    public Set<ResponseDTO> converter(Set<Response> responses) {
-        Set<ResponseDTO> responseDTOs = null;
-        for (Response r : responses) {
-            ResponseDTO responseDTO = new ResponseDTO(r);
-            responseDTOs.add(responseDTO);
-        }
-        return responseDTOs;
+    public ResponseDTO(int id, int courseId, int userId, int responseId, String text) {
+        this.id = id;
+        this.courseId = courseId;
+        this.userId = userId;
+        this.responseId = responseId;
+        this.text = text;
     }
 
     public int getId() {

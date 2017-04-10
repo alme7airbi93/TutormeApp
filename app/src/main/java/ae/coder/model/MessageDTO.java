@@ -1,8 +1,7 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Course;
-import ae.tutorme.model.Message;
+
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -27,24 +26,15 @@ public class MessageDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-    public MessageDTO(Message message) {
-        this.id = message.getId();
-        this.body = message.getBody();
-        this.subject = message.getSubject();
-        this.reciverId = message.getReciverId();
-        this.userId = message.getUser() != null ? message.getUser().getUserId() : 0;
-        this.messageId = message.getMessage() == null ? 0 : message.getMessage().getId();
-        this.messages = converter(message.getMessages());
-    }
 
-    public Set<MessageDTO> converter(Set<Message> messages) {
-        Set<MessageDTO> messageDTOs = new HashSet<>();
-        for (Message m : messages) {
-            MessageDTO messageDTO = new MessageDTO(m);
-            messageDTOs.add(messageDTO);
-        }
-        return messageDTOs;
-    }
+	public MessageDTO(String body, int id, int userId, int messageId, int reciverId, String subject) {
+		this.body = body;
+		this.id = id;
+		this.userId = userId;
+		this.messageId = messageId;
+		this.reciverId = reciverId;
+		this.subject = subject;
+	}
 
 	public int getId() {
 		return id;

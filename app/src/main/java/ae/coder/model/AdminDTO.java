@@ -10,29 +10,14 @@ import java.util.Set;
 public class AdminDTO extends UserDTO
 {
 
-    public AdminDTO(int userId, String userName, String password, boolean enabled, String name, ActivationDTO activation, AuthorizationDTO authorization, Set<MessageDTO> messages) {
+    public AdminDTO(int userId, String userName, String password, boolean enabled, String name, ActivationDTO activation, AuthorizationDTO authorization) {
 
-        super(userId, userName, password, enabled, name, activation, authorization, messages);
+        super(userId,userName,password,enabled,name,activation,authorization);
     }
 
     public AdminDTO() {
     }
 
-    public AdminDTO(String userName, String password) {
-        super(userName, password);
-    }
-
-    public AdminDTO(String userName, String password, boolean enabled, Activation activation) {
-        super(userName, password, enabled, activation);
-    }
-
-    public AdminDTO(String userName, String password, boolean enabled, String name, Activation activation, Authorization authorization) {
-        super(userName, password, enabled, name, activation, authorization);
-    }
-
-    public AdminDTO(String userName, String password, boolean enabled, Activation activation, Authorization authorization) {
-        super(userName, password, enabled, activation, authorization);
-    }
 
 
 }

@@ -1,8 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Lesson;
-import ae.tutorme.model.Topic;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -25,23 +23,13 @@ public class TopicDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-
-    public TopicDTO(Topic topic) {
-        this.id = topic.getId();
-        this.courseId = topic.getCourse() != null ? topic.getCourse().getCourseId() : 0;
-        this.topicName = topic.getTopicName();
-        this.topicNumber = topic.getTopicNumber();
-        this.lessons = converter(topic.getLessons());
+    public TopicDTO(int id, int courseId, String topicName, int topicNumber) {
+        this.id = id;
+        this.courseId = courseId;
+        this.topicName = topicName;
+        this.topicNumber = topicNumber;
     }
 
-    public Set<LessonDTO> converter(Set<Lesson> lessons) {
-        Set<LessonDTO> lessonDTOs = new HashSet<>();
-        for (Lesson l : lessons) {
-            LessonDTO lessonDTO = new LessonDTO(l);
-            lessonDTOs.add(lessonDTO);
-        }
-        return lessonDTOs;
-    }
     public int getId() {
         return id;
     }

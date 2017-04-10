@@ -2,9 +2,6 @@ package ae.coder.model;
 
 
 
-import ae.tutorme.model.Category;
-import ae.tutorme.model.Course;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,20 +22,10 @@ public class CategoryDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-
-    public CategoryDTO(Category category) {
-        this.categoryId = category.getCategoryId();
-        this.name = category.getName();
-        this.courses = converter(category.getCourses());
-    }
-
-    public Set<CourseDTO> converter(Set<Course> courses) {
-        Set<CourseDTO> coursesDTO = new HashSet<>();
-        for (Course c : courses) {
-            CourseDTO courseDTO = new CourseDTO(c);
-            coursesDTO.add(courseDTO);
-        }
-        return coursesDTO;
+    public CategoryDTO(int categoryId, String name, Set<CourseDTO> courses) {
+        this.categoryId = categoryId;
+        this.name = name;
+        this.courses = courses;
     }
 
     public String getName() {

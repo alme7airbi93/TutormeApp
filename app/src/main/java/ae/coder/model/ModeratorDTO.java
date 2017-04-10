@@ -1,10 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Course;
-import ae.tutorme.model.Moderator;
-import ae.tutorme.model.User;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,22 +15,11 @@ public class ModeratorDTO extends UserDTO
 
     
     public ModeratorDTO() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
-
-    public ModeratorDTO(User user) {
-        super(user);
-        this.courses = courseConverter(((Moderator)user).getCourses());
-    }
-
-    public Set<CourseDTO> courseConverter(Set<Course> courses) {
-        Set<CourseDTO> coursesDTO = new HashSet<>();
-        for (Course c : courses) {
-            CourseDTO courseDTO = new CourseDTO(c);
-            coursesDTO.add(courseDTO);
-        }
-        return coursesDTO;
+    public ModeratorDTO(int userId, String userName, String password, boolean enabled, String name, ActivationDTO activation, AuthorizationDTO authorization) {
+        super(userId,userName,password,enabled,name,activation,authorization);
     }
 
     public Set<CourseDTO> getCourses() {

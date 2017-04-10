@@ -1,10 +1,5 @@
 package ae.coder.model;
 
-import ae.tutorme.model.Activation;
-import ae.tutorme.model.Authorization;
-import ae.tutorme.model.Message;
-import ae.tutorme.model.User;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -29,24 +24,14 @@ public abstract class UserDTO implements Serializable
 
     public UserDTO() {}
 
-    public UserDTO(User user) {
-        this.userId = user.getUserId();
-        this.userName = user.getUserName();
-        this.password = user.getPassword();
-        this.enabled = user.isEnabled();
-        this.name = user.getName();
-        this.activation = new ActivationDTO(user.getActivation());
-        this.authorization = new AuthorizationDTO(user.getAuthorization());
-        this.messages = converter(user.getMessages());
-    }
-
-    public Set<MessageDTO> converter(Set<Message> messages) {
-        Set<MessageDTO> messageDTOs = new HashSet<>();
-        for (Message m : messages) {
-            MessageDTO messageDTO = new MessageDTO(m);
-            messageDTOs.add(messageDTO);
-        }
-        return messageDTOs;
+    public UserDTO(int userId, String userName, String password, boolean enabled, String name, ActivationDTO activation, AuthorizationDTO authorization) {
+        this.userId = userId;
+        this.userName = userName;
+        this.password = password;
+        this.enabled = enabled;
+        this.name = name;
+        this.activation = activation;
+        this.authorization = authorization;
     }
 
     public Set<MessageDTO> getMessages() {

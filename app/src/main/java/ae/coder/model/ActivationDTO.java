@@ -1,6 +1,5 @@
 package ae.coder.model;
 
-import ae.tutorme.model.Activation;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,7 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Lesson;
 
 import java.io.Serializable;
 
@@ -24,14 +23,13 @@ public class LessonDTO implements Serializable {
 	}
 
 
-    public LessonDTO(Lesson lesson) {
-        this.id = lesson.getId();
-        this.lessonName = lesson.getLessonName();
-        this.lessonNumber = lesson.getLessonNumber();
-        this.materialPath = lesson.getMaterialPath();
-        this.topicId = lesson.getTopic() == null ? 0 : lesson.getTopic().getId();
+    public LessonDTO(int id, int topicId, String lessonName, int lessonNumber, String materialPath) {
+        this.id = id;
+        this.topicId = topicId;
+        this.lessonName = lessonName;
+        this.lessonNumber = lessonNumber;
+        this.materialPath = materialPath;
     }
-
 
     public int getId() {
         return id;

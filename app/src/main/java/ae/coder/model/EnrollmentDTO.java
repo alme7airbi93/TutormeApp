@@ -1,7 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Enrollment;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,14 +23,13 @@ public class EnrollmentDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-    public EnrollmentDTO(Enrollment enrollment) {
-        this.id = enrollment.getId();
-        this.amountPaid = enrollment.getAmountPaid();
-        this.courseId = enrollment.getCourse() != null ? enrollment.getCourse().getCourseId() : 0;
-        this.studentId = enrollment.getStudent() != null ? enrollment.getStudent().getUserId() : 0;
-        this.enrolledDate = enrollment.getEnrolledDate();
+    public EnrollmentDTO(int id, int studentId, int courseId, Date enrolledDate, double amountPaid) {
+        this.id = id;
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.enrolledDate = enrolledDate;
+        this.amountPaid = amountPaid;
     }
-
 
     public int getId() {
         return id;

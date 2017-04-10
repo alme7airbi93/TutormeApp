@@ -1,9 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Enrollment;
-import ae.tutorme.model.Student;
-import ae.tutorme.model.User;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,23 +17,11 @@ public class StudentDTO extends UserDTO
 
     private Set<RateDTO> rates = new HashSet<>();
 
-    public StudentDTO(User user) {
-        super(user);
-        this.enrollmentDTOs = enrollmentConverter(((Student) user).getEnrollments());
+    public StudentDTO(int userId, String userName, String password, boolean enabled, String name, ActivationDTO activation, AuthorizationDTO authorization) {
+        super(userId,userName,password,enabled,name,activation,authorization);
     }
-    
-    public StudentDTO() {
-		// TODO Auto-generated constructor stub
-	}
 
-    public Set<EnrollmentDTO> enrollmentConverter(Set<Enrollment> enrollments) {
-        Set<EnrollmentDTO> enrollmentDTOs = new HashSet<>(enrollments.size());
-        for (Enrollment e : enrollments) {
-            EnrollmentDTO enrollmentDTO = new EnrollmentDTO(e);
-            enrollmentDTOs.add(enrollmentDTO);
-        }
-        return enrollmentDTOs;
-    }
+
     public Set<EnrollmentDTO> getEnrollmentDTOs() {
         return enrollmentDTOs;
     }

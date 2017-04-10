@@ -1,7 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Authorization;
 
 import java.io.Serializable;
 
@@ -21,12 +20,11 @@ public class AuthorizationDTO implements Serializable
 		// TODO Auto-generated constructor stub
 	}
 
-    public AuthorizationDTO(Authorization authorization) {
-        this.id = authorization.getId();
-        this.userName = authorization.getUser() != null ? authorization.getUser().getUserName() : null;
-        this.role = authorization.getRole();
+    public AuthorizationDTO(int id, String role, String userName) {
+        this.id = id;
+        this.role = role;
+        this.userName = userName;
     }
-
 
     public int getId() {
         return id;

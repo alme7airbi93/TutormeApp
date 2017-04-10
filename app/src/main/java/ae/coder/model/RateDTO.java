@@ -1,8 +1,6 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Rate;
-
 import java.io.Serializable;
 
 /**
@@ -21,13 +19,12 @@ public class RateDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-    public RateDTO(Rate rate) {
-        this.id = rate.getId();
-        this.courseId = rate.getCourse() != null ? rate.getCourse().getCourseId() : 0;
-        this.studentId = rate.getStudent() != null ? rate.getStudent().getUserId() : 0;
-        this.rating = rate.getRating();
+    public RateDTO(int id, int studentId, int courseId, double rating) {
+        this.id = id;
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.rating = rating;
     }
-
 
     public int getId() {
         return id;

@@ -1,10 +1,7 @@
 package ae.coder.model;
 
 
-import ae.tutorme.model.Course;
-import ae.tutorme.model.Enrollment;
-import ae.tutorme.model.Rate;
-import ae.tutorme.model.Topic;
+
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -35,48 +32,20 @@ public class CourseDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-
-    public CourseDTO(Course course) {
-        this.courseId = course.getCourseId();
-        this.description = course.getDescription();
-        this.categoryId = course.getCategory() != null ? course.getCategory().getCategoryId() : 0;
-        this.instructorId = course.getInstructor() != null ? course.getInstructor().getUserId() : 0;
-        this.moderatorId = course.getModerator() != null ? course.getModerator().getUserId() : 0;
-        this.name = course.getName();
-        this.price = course.getPrice();
-        this.rating = course.getRating();
-        this.enabled = course.isEnabled();
-        this.enrollments = enroolmentConverter(course.getEnrollments());
-        this.rates = rateConverter(course.getRates());
-        this.topics = topicConverter(course.getTopics());
+    public CourseDTO(int courseId, int instructorId, int moderatorId, String description, double price,
+                     String name, boolean enabled, double rating, Set<TopicDTO> topics, Set<RateDTO> rates, int categoryId) {
+        this.courseId = courseId;
+        this.instructorId = instructorId;
+        this.moderatorId = moderatorId;
+        this.description = description;
+        this.price = price;
+        this.name = name;
+        this.enabled = enabled;
+        this.rating = rating;
+        this.topics = topics;
+        this.rates = rates;
+        this.categoryId = categoryId;
     }
-
-    public Set<EnrollmentDTO> enroolmentConverter(Set<Enrollment> enrollments) {
-        Set<EnrollmentDTO> enrollmentDTOs = new HashSet<>();
-        for (Enrollment e : enrollments) {
-            EnrollmentDTO enrollmentDTO = new EnrollmentDTO(e);
-            enrollmentDTOs.add(enrollmentDTO);
-        }
-        return enrollmentDTOs;
-    }
-
-    public Set<TopicDTO> topicConverter(Set<Topic> topics) {
-        Set<TopicDTO> topicDTOs =  new HashSet<>();
-        for (Topic t : topics) {
-            TopicDTO topicDTO = new TopicDTO(t);
-            topicDTOs.add(topicDTO);
-        }
-        return topicDTOs;
-    }
-    public Set<RateDTO> rateConverter(Set<Rate> rates) {
-        Set<RateDTO> rateDTOs =  new HashSet<>();
-        for (Rate r : rates) {
-            RateDTO rateDTO = new RateDTO(r);
-            rateDTOs.add(rateDTO);
-        }
-        return rateDTOs;
-    }
-
 
     public int getModeratorId() {
         return moderatorId;
